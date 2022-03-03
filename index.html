@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeJS Timeline Animation</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <section id="home">
+        <img id="logo" src="./assets/we.Santos-removebg-preview.png" alt="">
+
+        <nav id="navigation" class="animate__animated  animate__bounceInRight animate__delay-5s">
+            <a id="lateral" href="#home">Home</a>
+            <a id="lateral" href="#about">About</a>
+            <a id="lateral" href="#work">Work</a>
+            <a id="lateral" href="#contact">Contact</a>
+        </nav>
+
+        <img src="./assets/stars.png" id="stars">
+        <img src="./assets/moon.png" id="moon">
+        <img src="./assets/mountains_behind.png" id="mountains_behind">
+        <h2 id="text">< We Santos />  </h2>
+        <a href="#" id="btn">Play</a>
+        <img src="./assets/mountains_front.png" id="mountains_front">
+    </section>
+
+
+    <script src="./animejs/lib/anime.min.js"></script>
+
+
+    <script>
+        var animation = anime.timeline({
+            autoplay: false
+        });
+
+        animation
+        .add({
+            targets: '#btn',
+            top: '1500px',
+            duration: 500,
+            easing: 'easeInOutSine'
+        })
+
+        animation
+        .add({
+            targets: '#stars',
+            top: '0px',
+            duration: 1000,
+            easing: 'easeInOutSine'
+        })
+
+        animation
+        .add({
+            targets: '#mountains_behind',
+            bottom: '0px',
+            duration: 1000,
+            easing: 'easeInOutSine'
+        })
+
+        animation
+        .add({
+            targets: '#moon',
+            top: '0px',
+            duration: 1000,
+            easing: 'easeInOutBack'
+        })
+
+        animation
+        .add({
+            targets: '#mountains_front',
+            bottom: '0px',
+            duration: 1000,
+            easing: 'easeInOutSine'
+        })
+
+        animation
+        .add({
+            targets: '#text',
+            duration: 2000,
+            easing: 'easeInOutBack',
+            direction: 'alternate',
+            marginRight: 0
+        })
+
+        .add({
+            targets: '#btn',
+            top: '50%',
+            duration: 1000,
+            easing: 'easeInOutBack'
+        })
+
+        .add({
+            targets: '#logo',
+            translateX: 250,
+            endDelay: 800,
+            direction: 'alternate'
+        })
+
+
+
+
+        document.querySelector('#btn').onclick = animation.play;
+    </script>
+</body>
+</html>
